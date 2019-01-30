@@ -10,6 +10,8 @@ namespace C0723381_WEEK_04
     {
         static void Main(string[] args)
         {
+            Countryside blue = new Countryside();
+            blue.Launch();
         }
     }
     
@@ -32,20 +34,41 @@ namespace C0723381_WEEK_04
         Village Ajax = new Village();
         Village First;
         Village Last;
+        Village Temp;
+      
         
         public void Launch()
         {
+            Village Temp;
+            First = Maple;
+            Last = Ajax;
             Maple.VillageName = "Maple";
             Maple.nextVillage = Toronto;
             Maple.previousVillage = null;
             Toronto.VillageName = "Toronto";
             Toronto.nextVillage = Ajax;
-            Toronto.previousVillage = Ajax;
+            Toronto.nextVillage = Maple;
             Ajax.VillageName = "Ajax";
             Ajax.nextVillage = null;
             Ajax.nextVillage = Toronto;
 
+            Console.WriteLine(this.displayMap());
+            Console.ReadLine();
 
+
+        }
+        public string displayMap()
+        {
+            string listOfCities = "";
+            // we need to print all the cities
+           
+            
+                listOfCities = listOfCities + First.VillageName;
+                Temp = First.nextVillage;
+                listOfCities = listOfCities + Temp.VillageName;
+
+
+            return listOfCities;
         }
 
 
